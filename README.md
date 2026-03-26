@@ -27,3 +27,11 @@ D \leftarrow D_{before}-\left\lfloor Q \right\rfloor \cdot d^2
 \end{aligned}
 $$
 
+    VARIABLES:
+
+$$\displaystyle\ Q = \frac {D}{d^2} $$
+$$\displaystyle\ D = length \cdot width $$
+$$\displaystyle\ d = (length < width) \quad ? \quad length:width $$
+
+
+

@@ -8,6 +8,14 @@
 // NOW THAT CHANGE IS 0 IT'S DONE
 
 
+//Formula i made in LaTeX:
+
+//\displaystyle\sum_{Q\neq 0}\left(\sum_{j = 0}^{\left\lfloor Q \right\rfloor -1}
+//d  \quad;\quad D \leftarrow D_{before} - \left \lfloor Q \right \rfloor \cdot d^2 \right)\\
+//D = length \cdot width \\
+//d = (length < width) \quad ? \quad length:width \\
+//Q = \frac {D}{d^2}
+
 
 
 function sqInRect(lng, wdth){
@@ -20,13 +28,14 @@ function sqInRect(lng, wdth){
     const SHORTER_SIDE = lng<wdth ? lng:wdth;
     let DIVISOR = SHORTER_SIDE;
     let DIVIDEND = lng*wdth;
+    let Q = DIVIDEND/pow(DIVISOR);
 
-    while(DIVIDEND/pow(DIVISOR)!==0){
+    while(Q!==0){
 
-        for(let j = 0; j < Math.floor((DIVIDEND/pow(DIVISOR)));j++){
+        for(let j = 0; j < Math.floor(Q);j++){
             SQUARES.push(DIVISOR);
         }
-        DIVIDEND=DIVIDEND-Math.floor((DIVIDEND/pow(DIVISOR)))*pow(DIVISOR);
+        DIVIDEND=DIVIDEND-Math.floor(Q)*pow(DIVISOR);
         DIVISOR = DIVIDEND/SQUARES[SQUARES.length-1];
         if(DIVIDEND===0)break;
     }
